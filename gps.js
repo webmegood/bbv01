@@ -7,7 +7,7 @@ function setupGeolocation () {
     var callbackFn = function(location) {
 		
 		
-		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');	  
+		//alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
   
 	  
 	  /*
@@ -23,7 +23,7 @@ function setupGeolocation () {
       */
     var failureFn = function(error) {
 	  
-		alert('error');	  
+		//alert('error');	  
 	  
     };
 
@@ -32,10 +32,10 @@ function setupGeolocation () {
         desiredAccuracy: 10,
         stationaryRadius: 20,
         distanceFilter: 30,
-        debug: false, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
+        debug: true, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
         stopOnTerminate: true,
 		locationService: backgroundGeoLocation.service.ANDROID_FUSED_LOCATION,
-    	interval: 5000 // <!-- poll for position every 5 secs 
+    	interval: 30000 // <!-- poll for position every 30 secs 
 	// <-- Clear background location settings when the app terminates
     });
 
@@ -44,7 +44,35 @@ function setupGeolocation () {
 
     // Stop tracking of user coords
     // backgroundGeoLocation.stop();
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+function storedData () {
+    backgroundGeoLocation.getLocations(function(locations, taskId) {
+        try {
+            console.log("locations: ", locations);
+        } catch(e) {
+            console.error("An error occurred in my application code");
+        }
+        bgGeo.finish(taskId);
+    });
 }
 
 
 
+$(document).ready(function(){
+    $("#btnCheckStoredData").click(storedData);
+});
