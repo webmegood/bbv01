@@ -1,87 +1,43 @@
-
-
-
-var Latitude = undefined;
-var Longitude = undefined;
-
-// Get geo coordinates
-
-function getMapLocation() {
-
-    navigator.geolocation.getCurrentPosition
-    (onMapSuccess, onMapError, { enableHighAccuracy: true });
-}
-
-// Success callback for get geo coordinates
-
-var onMapSuccess = function (position) {
-
-    Latitude = position.coords.latitude;
-    Longitude = position.coords.longitude;
-
-    getMap(Latitude, Longitude);
-
-}
-
-// Get map by using coordinates
-
-function getMap(latitude, longitude) {
-
-    var mapOptions = {
-        center: new google.maps.LatLng(0, 0),
-        zoom: 1,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+document.addEventListener('deviceready', onDeviceReady, false);
+ 
+function onDeviceReady () {
+ 
+    /**
+    * This callback will be executed every time a geolocation is recorded in the background.
+    */
+    var callbackFn = function(location) {
+        console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
+ 
+        // Do your HTTP request here to POST location to your server. 
+        // jQuery.post(url, JSON.stringify(location)); 
+ 
+        /*
+        IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
+        and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
+        IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
+        */
+        backgroundGeoLocation.finish();
     };
-
-    map = new google.maps.Map
-    (document.getElementById("map"), mapOptions);
-
-
-    var latLong = new google.maps.LatLng(latitude, longitude);
-
-    var marker = new google.maps.Marker({
-        position: latLong
+ 
+    var failureFn = function(error) {
+        console.log('BackgroundGeoLocation error');
+    };
+ 
+    // BackgroundGeoLocation is highly configurable. See platform specific configuration options 
+    backgroundGeoLocation.configure(callbackFn, failureFn, {
+        desiredAccuracy: 10,
+        stationaryRadius: 20,
+        distanceFilter: 30,
+        debug: true, // <-- enable this hear sounds for background-geolocation life-cycle. 
+        stopOnTerminate: false, // <-- enable this to clear background location settings when the app terminates 
     });
-
-    marker.setMap(map);
-    map.setZoom(15);
-    map.setCenter(marker.getPosition());
+ 
+    // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app. 
+    backgroundGeoLocation.start();
+ 
+    // If you wish to turn OFF background-tracking, call the #stop method. 
+    // backgroundGeoLocation.stop(); 
 }
-
-// Success callback for watching your changing position
-
-var onMapWatchSuccess = function (position) {
-
-    var updatedLatitude = position.coords.latitude;
-    var updatedLongitude = position.coords.longitude;
-
-    if (updatedLatitude != Latitude && updatedLongitude != Longitude) {
-
-        Latitude = updatedLatitude;
-        Longitude = updatedLongitude;
-
-        getMap(updatedLatitude, updatedLongitude);
-    }
-}
-
-// Error callback
-
-function onMapError(error) {
-    console.log('code: ' + error.code + '\n' +
-        'message: ' + error.message + '\n');
-}
-
-// Watch your changing position
-
-function watchMapPosition() {
-
-    return navigator.geolocation.watchPosition
-    (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });  
-}
-
-
-
-
 
 
 
@@ -90,15 +46,11 @@ function watchMapPosition() {
 function checkRange() {
 
 
-
-
 if (navigator.geolocation) {
   	navigator.geolocation.getCurrentPosition(function(position) {
     $("#location").html("latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude);
   });
 }  
-
-
 
 
 }
