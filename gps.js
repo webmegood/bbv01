@@ -1,4 +1,11 @@
-//document.addEventListener('deviceready', setupGeolocation, false);
+document.addEventListener('deviceready', setupGeolocation, false);
 
-alert('hi there');
+function setupGeolocation () {
+
+
+alert('help');
+
+}
+
+
 
