@@ -5,8 +5,10 @@ function setupGeolocation () {
      * This function will be executed every time a geolocation was got on the background.
      */
     var callbackFn = function(location) {
-
-		alert(location.latitude);	  
+		
+		
+		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');	  
+  
 	  
 	  /*
       IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
@@ -31,7 +33,10 @@ function setupGeolocation () {
         stationaryRadius: 20,
         distanceFilter: 30,
         debug: false, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
-        stopOnTerminate: true, // <-- Clear background location settings when the app terminates
+        stopOnTerminate: true,
+		locationService: backgroundGeoLocation.service.ANDROID_FUSED_LOCATION,
+    	interval: 5000 // <!-- poll for position every 5 secs 
+	// <-- Clear background location settings when the app terminates
     });
 
     // Start tracking of user coords
