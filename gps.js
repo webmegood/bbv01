@@ -35,8 +35,8 @@ function setupGeolocation () {
         desiredAccuracy: 10,
         stationaryRadius: 20,
         distanceFilter: 30,
-        debug: true, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
-        stopOnTerminate: false, // <-- Clear background location settings when the app terminates
+        debug: false, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
+        stopOnTerminate: true, // <-- Clear background location settings when the app terminates
     });
 
     // Start tracking of user coords
