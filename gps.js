@@ -6,16 +6,10 @@ function setupGeolocation () {
      */
     var callbackFn = function(location) {
           // Console.log only is here. You need to setup your own data interaction here
-      console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
+      // console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
       
 		alert('Latitude: '          + location.latitude          + '\n' +
-              'Longitude: '         + location.longitude         + '\n' +
-              'Altitude: '          + location.altitude          + '\n' +
-              'Accuracy: '          + location.accuracy          + '\n' +
-              'Altitude Accuracy: ' + location.altitudeAccuracy  + '\n' +
-              'Heading: '           + location.heading           + '\n' +
-              'Speed: '             + location.speed             + '\n' +
-              'Timestamp: '         + location.timestamp         + '\n');	  
+              'Longitude: '         + location.longitude         + '\n');	  
 	  
 	  /*
       IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
@@ -54,23 +48,3 @@ function setupGeolocation () {
 
 
 
-
-
-
-function checkRange() {
-
-
-if (navigator.geolocation) {
-  	navigator.geolocation.getCurrentPosition(function(position) {
-    $("#location").html("latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude);
-  });
-}  
-
-
-}
-
-
-
-$(document).ready(function(){
-    $("#btnCheckGeoRange").click(checkRange);
-});
