@@ -78,7 +78,7 @@ $("#btnStopRecording").click(function(){
 
 
 
-
+var tracking_data = { 'one': 1, 'two': 2, 'three': 3 };
 
 // Store
 
@@ -94,8 +94,6 @@ alert("Tracking Data Not Accessible");
 
 var retrievedObject = localStorage.getItem('tracking_data');
 document.getElementById("result").innerHTML = retrievedObject;
-
-
 
 
 
