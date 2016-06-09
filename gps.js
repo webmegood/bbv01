@@ -74,13 +74,34 @@ $("#btnStopRecording").click(function(){
 									
 									
 					
-					
-   
-// Stop tracking the user
-backgroundGeoLocation.stop();
 
-// Save the tracking data
-//window.localStorage.setItem(track_id, JSON.stringify(tracking_data));
+
+
+
+
+
+// Store
+
+if(typeof(window.localStorage) != 'undefined'){ 
+localStorage.setItem('tracking_data', JSON.stringify(testObject));
+} else {
+alert("Tracking Data Not Accessible"); 
+}
+
+
+
+// Retrieve 
+
+var retrievedObject = localStorage.getItem('tracking_data');
+document.getElementById("result").innerHTML = retrievedObject;
+
+
+
+
+
+
+
+
  
 // Reset tracking_data 
 var tracking_data = null;					
@@ -88,17 +109,7 @@ var tracking_data = null;
 					
 					
 					
-$("#tracking_status").html("Stopped tracking data");
-									  
-	
-    backgroundGeoLocation.getLocations(function(locations, taskId) {
-        try {
-            console.log("locations: ", locations);
-        } catch(e) {
-            console.error("An error occurred in my application code");
-        }
-        bgGeo.finish(taskId);
-    });
+
 	
 	
 	
