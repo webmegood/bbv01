@@ -4,9 +4,13 @@ function setupGeolocation () {
     /**
      * This function will be executed every time a geolocation was got on the background.
      */
+	 
+	var tracking_data = []; // Array containing GPS location objects	 
+	 
+	 
     var callbackFn = function(location) {
 		
-		console.log('BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
+		tracking_data.push(location);
 		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
   
 	  
@@ -33,7 +37,7 @@ function setupGeolocation () {
         stationaryRadius: 20,
         distanceFilter: 30,
         debug: true, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
-        stopOnTerminate: true,
+        stopOnTerminate: false,
 		locationService: backgroundGeoLocation.service.ANDROID_FUSED_LOCATION,
     	interval: 30000 // <!-- poll for position every 30 secs 
 	// <-- Clear background location settings when the app terminates
@@ -65,7 +69,27 @@ function setupGeolocation () {
 
 
 $(document).ready(function(){
-$("#btnCheckStoredData").click(function(){
+						   
+$("#btnStopRecording").click(function(){ 
+									
+									
+					
+					
+   
+// Stop tracking the user
+backgroundGeoLocation.stop();
+
+// Save the tracking data
+//window.localStorage.setItem(track_id, JSON.stringify(tracking_data));
+ 
+// Reset tracking_data 
+var tracking_data = null;					
+					
+					
+					
+					
+$("#tracking_status").html("Stopped tracking data");
+									  
 	
     backgroundGeoLocation.getLocations(function(locations, taskId) {
         try {
@@ -75,6 +99,11 @@ $("#btnCheckStoredData").click(function(){
         }
         bgGeo.finish(taskId);
     });
+	
+	
+	
+	
 
 });
+
 });
