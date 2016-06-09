@@ -83,7 +83,7 @@ $("#btnStopRecording").click(function(){
 // Store
 
 if(typeof(window.localStorage) != 'undefined'){ 
-localStorage.setItem('tracking_data', JSON.stringify(testObject));
+localStorage.setItem('tracking_data', JSON.stringify(tracking_data));
 } else {
 alert("Tracking Data Not Accessible"); 
 }
