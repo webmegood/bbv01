@@ -45,9 +45,6 @@ function setupGeolocation () {
 
     // Start tracking of user coords
     backgroundGeoLocation.start();
-
-    // Stop tracking of user coords
-    // backgroundGeoLocation.stop();
 	
 	
 }
@@ -73,12 +70,12 @@ $(document).ready(function(){
 $("#btnStopRecording").click(function(){ 
 									
 									
-					
+
+// Stop tracking of user coords
+backgroundGeoLocation.stop();
 
 
 
-
-var tracking_data = { 'one': 1, 'two': 2, 'three': 3 };
 
 // Store
 
