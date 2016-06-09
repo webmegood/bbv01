@@ -6,8 +6,8 @@ function setupGeolocation () {
      */
     var callbackFn = function(location) {
 		
-		
-		//alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
+		console.log('BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
+		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
   
 	  
 	  /*
@@ -46,21 +46,27 @@ function setupGeolocation () {
     // backgroundGeoLocation.stop();
 	
 	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function(){
+$("#btnCheckStoredData").click(function(){
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-function storedData () {
     backgroundGeoLocation.getLocations(function(locations, taskId) {
         try {
             console.log("locations: ", locations);
@@ -69,10 +75,6 @@ function storedData () {
         }
         bgGeo.finish(taskId);
     });
-}
 
-
-
-$(document).ready(function(){
-    $("#btnCheckStoredData").click(storedData);
+});
 });
