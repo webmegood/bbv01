@@ -86,30 +86,37 @@ alert("Tracking Data Not Accessible");
 }
 
 
+	
+
+});
+
+});
+
+
+
+
+
+
+
+$(document).ready(function(){
+						   
+$("#btnViewData").click(function(){ 
+									
+
 
 // Retrieve 
 
 var retrievedObject = localStorage.getItem('tracking_data');
 document.getElementById("result").innerHTML = retrievedObject;
 
-
-
-
-
-
  
 // Reset tracking_data 
 var tracking_data = null;					
-					
-					
-					
-					
 
-	
-	
-	
+
 	
 
 });
 
 });
+

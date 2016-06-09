@@ -60,6 +60,7 @@ body {
     -webkit-border-radius: 10px;
 	border-radius: 10px;
 	font-weight: bold;
+	margin-bottom: 20px;
 }
 p {
 	width: auto;
