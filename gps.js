@@ -12,6 +12,24 @@ function setupGeolocation () {
 		//testObject.push(location);
 		testObject.push([location.latitude, location.longitude]);
 		//alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
+		
+		
+		
+		// Store
+		if(typeof(window.localStorage) != 'undefined'){ 
+		localStorage.setItem('testObject', JSON.stringify(testObject));
+		} else {
+		alert("Tracking Data Not Accessible"); 
+		}
+		
+		
+		// Retrieve 
+		var retrievedObject = localStorage.getItem('testObject');
+		document.getElementById("result").innerHTML = retrievedObject;	
+
+
+		
+		
   
 	  
 	  /*
@@ -75,7 +93,7 @@ $("#btnStopRecording").click(function(){
 
 
 //alert(testObject);
-alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
+//alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
 
 
 
