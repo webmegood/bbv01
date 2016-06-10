@@ -9,9 +9,7 @@ function setupGeolocation () {
 
     var callbackFn = function(location) {
 		
-		//testObject.push(location);
-		testObject.push([location.latitude, location.longitude]);
-		//alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
+		testObject.push([location.latitude, location.longitude, location.time, location.altitude]);
 		
 		
 		
@@ -52,9 +50,9 @@ function setupGeolocation () {
     // A lot of options is available here, you can see them all on plugin repo (see link below)
     backgroundGeoLocation.configure(callbackFn, failureFn, {
         desiredAccuracy: 10,
-        stationaryRadius: 20,
-        distanceFilter: 30,
-        debug: true, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
+        stationaryRadius: 10,
+        distanceFilter: 10,
+        debug: false, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
         stopOnTerminate: false,
 		locationService: backgroundGeoLocation.service.ANDROID_FUSED_LOCATION,
     	interval: 5000 // <!-- poll for position every 5 secs 
@@ -81,61 +79,33 @@ function setupGeolocation () {
 
 
 
-
+// Stop Capturing Data
 
 $(document).ready(function(){
 						   
 $("#btnStopRecording").click(function(){ 
-									
-
-//var testObject = {'fefewf': 1, '000': 2, 'three': 3};
-//var testObject = [[-373597200000, 315.71], [-370918800000, 317.45], [-368326800000, 317.50]];
-
-
-//alert(testObject);
-//alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
-
-
-
-// Store
-
-if(typeof(window.localStorage) != 'undefined'){ 
-localStorage.setItem('testObject', JSON.stringify(testObject));
-} else {
-alert("Tracking Data Not Accessible"); 
-}
-
-
+$("#btnStopRecording").hide(); 
+$("#btnStartRecording").show(); 
 // Stop tracking of user coords
-//backgroundGeoLocation.stop();
-
-
-});
+backgroundGeoLocation.stop();
 
 });
 
+});
 
 
 
 
 
+// Start Data Capture 
 
 $(document).ready(function(){
 						   
-$("#btnViewData").click(function(){ 
-									
-
-
-
-
-// Retrieve 
-var retrievedObject = localStorage.getItem('testObject');
-document.getElementById("result").innerHTML = retrievedObject;	
-
-alert(retrievedObject);
-
-	
-
+$("#btnStartRecording").click(function(){ 
+$("#btnStartRecording").hide(); 
+$("#btnStopRecording").show(); 
+// Start tracking of user coords
+backgroundGeoLocation.start();
 });
 
 });
@@ -151,9 +121,8 @@ alert(retrievedObject);
 $(document).ready(function(){
 						   
 $("#btnClearData").click(function(){ 
-									
-document.getElementById("result").innerHTML = "";	
-
+document.getElementById("result").innerHTML = "";
+testObject = [];
 });
 
 });
