@@ -5,12 +5,12 @@ function setupGeolocation () {
      * This function will be executed every time a geolocation was got on the background.
      */
 	 
-	var tracking_data = []; // Array containing GPS location objects	 
+	var testObject = [];	 // Array containing GPS location objects	 
 	 
 	 
     var callbackFn = function(location) {
 		
-		tracking_data.push(location);
+		testObject.push(location);
 		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
   
 	  
@@ -69,10 +69,13 @@ $(document).ready(function(){
 						   
 $("#btnStopRecording").click(function(){ 
 									
-									
 
 // Stop tracking of user coords
 backgroundGeoLocation.stop();
+
+
+
+//var testObject = {'one': 1, 'two': 2, 'three': 3};
 
 
 
@@ -80,7 +83,7 @@ backgroundGeoLocation.stop();
 // Store
 
 if(typeof(window.localStorage) != 'undefined'){ 
-localStorage.setItem('tracking_data', JSON.stringify(tracking_data));
+localStorage.setItem('testObject', JSON.stringify(testObject));
 } else {
 alert("Tracking Data Not Accessible"); 
 }
@@ -104,14 +107,11 @@ $("#btnViewData").click(function(){
 									
 
 
+
+
 // Retrieve 
-
-var retrievedObject = localStorage.getItem('tracking_data');
-document.getElementById("result").innerHTML = retrievedObject;
-
- 
-// Reset tracking_data 
-var tracking_data = null;					
+var retrievedObject = localStorage.getItem('testObject');
+document.getElementById("result").innerHTML = retrievedObject;	
 
 
 	
@@ -120,3 +120,20 @@ var tracking_data = null;
 
 });
 
+
+
+
+
+
+
+// Clear Array
+
+$(document).ready(function(){
+						   
+$("#btnClearData").click(function(){ 
+									
+document.getElementById("result").innerHTML = "";	
+
+});
+
+});
