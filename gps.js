@@ -10,7 +10,7 @@ function setupGeolocation () {
     var callbackFn = function(location) {
 		
 		//testObject.push(location);
-		var testObject = [ location.latitude, location.longitude ];
+		var testObject = [[location.latitude], [location.longitude]];
 		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
   
 	  
