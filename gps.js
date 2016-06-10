@@ -11,7 +11,7 @@ function setupGeolocation () {
 		
 		//testObject.push(location);
 		testObject.push([location.latitude, location.longitude]);
-		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
+		//alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
   
 	  
 	  /*
@@ -74,7 +74,8 @@ $("#btnStopRecording").click(function(){
 //var testObject = [[-373597200000, 315.71], [-370918800000, 317.45], [-368326800000, 317.50]];
 
 
-alert(testObject);
+//alert(testObject);
+alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
 
 
 
@@ -113,6 +114,7 @@ $("#btnViewData").click(function(){
 var retrievedObject = localStorage.getItem('testObject');
 document.getElementById("result").innerHTML = retrievedObject;	
 
+alert(retrievedObject);
 
 	
 
