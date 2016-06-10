@@ -74,7 +74,7 @@ $("#btnStopRecording").click(function(){
 //var testObject = [[-373597200000, 315.71], [-370918800000, 317.45], [-368326800000, 317.50]];
 
 
-
+alert(testObject);
 
 
 
