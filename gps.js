@@ -6,11 +6,11 @@ function setupGeolocation () {
      */
 	 
 	var testObject = [];	 // Array containing GPS location objects	 
-	 
-	 
+
     var callbackFn = function(location) {
 		
-		testObject.push(location);
+		//testObject.push(location);
+		var testObject = [ location.latitude, location.longitude ];
 		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
   
 	  
@@ -71,12 +71,12 @@ $("#btnStopRecording").click(function(){
 									
 
 // Stop tracking of user coords
-backgroundGeoLocation.stop();
+//backgroundGeoLocation.stop(); <-- causes problems with object below
 
 
 
-//var testObject = {'one': 1, 'two': 2, 'three': 3};
-
+//var testObject = {'fefewf': 1, '000': 2, 'three': 3};
+//var testObject = [[-373597200000, 315.71], [-370918800000, 317.45], [-368326800000, 317.50]];
 
 
 
