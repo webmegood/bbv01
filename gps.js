@@ -9,7 +9,7 @@ function setupGeolocation () {
 
     var callbackFn = function(location) {
 		
-		testObject.push([location.latitude, location.longitude, location.time, location.altitude]);
+		testObject.push([location.latitude, location.longitude, location.time]);
 		
 		
 		
@@ -50,12 +50,12 @@ function setupGeolocation () {
     // A lot of options is available here, you can see them all on plugin repo (see link below)
     backgroundGeoLocation.configure(callbackFn, failureFn, {
         desiredAccuracy: 10,
-        stationaryRadius: 10,
-        distanceFilter: 10,
+        stationaryRadius: 20,
+        distanceFilter: 20,
         debug: false, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
-        stopOnTerminate: false,
+        stopOnTerminate: true,
 		locationService: backgroundGeoLocation.service.ANDROID_FUSED_LOCATION,
-    	interval: 5000 // <!-- poll for position every 5 secs 
+    	interval: 30000 // <!-- poll for position every 5 secs 
 	// <-- Clear background location settings when the app terminates
     });
 
