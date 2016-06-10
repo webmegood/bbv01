@@ -70,13 +70,11 @@ $(document).ready(function(){
 $("#btnStopRecording").click(function(){ 
 									
 
-// Stop tracking of user coords
-//backgroundGeoLocation.stop(); <-- causes problems with object below
-
-
-
 //var testObject = {'fefewf': 1, '000': 2, 'three': 3};
-//var testObject = [[-373597200000, 315.71], [-370918800000, 317.45], [-368326800000, 317.50]];
+var testObject = [[-373597200000, 315.71], [-370918800000, 317.45], [-368326800000, 317.50]];
+
+
+
 
 
 
@@ -89,7 +87,9 @@ alert("Tracking Data Not Accessible");
 }
 
 
-	
+// Stop tracking of user coords
+backgroundGeoLocation.stop();
+
 
 });
 
