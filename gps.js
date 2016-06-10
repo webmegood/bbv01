@@ -10,7 +10,7 @@ function setupGeolocation () {
     var callbackFn = function(location) {
 		
 		//testObject.push(location);
-		var testObject = [[location.latitude], [location.longitude]];
+		testObject.push([location.latitude, location.longitude]);
 		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
   
 	  
@@ -88,7 +88,7 @@ alert("Tracking Data Not Accessible");
 
 
 // Stop tracking of user coords
-backgroundGeoLocation.stop();
+//backgroundGeoLocation.stop();
 
 
 });
