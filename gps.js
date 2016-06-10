@@ -55,7 +55,7 @@ function setupGeolocation () {
         debug: false, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
         stopOnTerminate: true,
 		locationService: backgroundGeoLocation.service.ANDROID_FUSED_LOCATION,
-    	interval: 30000 // <!-- poll for position every 5 secs 
+    	interval: 3000 // <!-- poll for position every x secs 
 	// <-- Clear background location settings when the app terminates
     });
 

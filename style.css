@@ -38,7 +38,7 @@ body {
 
 
 .main_content {
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	z-index: 1;
 	top: 25%;
@@ -81,4 +81,8 @@ p {
 	margin-top: 25px;
 	font-size: 14px;
 	line-height: 18px;
+}
+.dynamic_data_box {
+	display: block;
+	margin-bottom: 12px;
 }
