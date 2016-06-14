@@ -9,15 +9,15 @@ function setupGeolocation () {
 
     var callbackFn = function(location) {
 		
-		testObject.push([location.latitude, location.longitude, location.time]);
-		
+		testObject.push(["Latitude": location.latitude, "Longitude": location.longitude, "Time": location.time]);
 		
 		
 		// Store
 		if(typeof(window.localStorage) != 'undefined'){ 
-		localStorage.setItem('testObject', JSON.stringify(testObject));
+		var gpsDataArray = JSON.stringify(testObject);
+		localStorage.setItem('testObject', gpsDataArray);
 		} else {
-		alert("Tracking Data Not Accessible"); 
+		alert("GPS Data Not Available"); 
 		}
 		
 		
@@ -26,7 +26,7 @@ function setupGeolocation () {
 		document.getElementById("result").innerHTML = retrievedObject;	
 
 
-		
+		sendtodatabase(gpsDataArray);
 		
   
 	  
@@ -64,6 +64,15 @@ function setupGeolocation () {
 	
 	
 }
+
+
+
+
+
+
+
+
+
 
 
 
