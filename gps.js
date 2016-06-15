@@ -13,28 +13,8 @@ function setupGeolocation () {
 		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
 		
 		// Store
-		if(typeof(window.localStorage) != 'undefined'){ 
 		localStorage.setItem('testObject', JSON.stringify(testObject));
-		} else {
-		alert("GPS Data Not Available"); 
-		}
-		
-		
-		// Retrieve 
-		var retrievedObject = localStorage.getItem('testObject');
-		document.getElementById("result").innerHTML = JSON.parse(retrievedObject);	
 
-
-		
-
-
-
-
-	  /*
-      IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
-      and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
-      IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
-      */
       backgroundGeoLocation.finish();
     };
 
@@ -71,52 +51,3 @@ function setupGeolocation () {
 
 
 
-
-
-// Stop Capturing Data
-
-$(document).ready(function(){
-						   
-$("#btnStopRecording").click(function(){ 
-$("#btnStopRecording").hide(); 
-$("#btnStartRecording").show(); 
-// Stop tracking of user coords
-backgroundGeoLocation.stop();
-
-});
-
-});
-
-
-
-
-
-// Start Data Capture 
-
-$(document).ready(function(){
-						   
-$("#btnStartRecording").click(function(){ 
-$("#btnStartRecording").hide(); 
-$("#btnStopRecording").show(); 
-// Start tracking of user coords
-backgroundGeoLocation.start();
-});
-
-});
-
-
-
-
-
-
-
-// Clear Array
-
-$(document).ready(function(){
-						   
-$("#btnClearData").click(function(){ 
-document.getElementById("result").innerHTML = "";
-testObject = [];
-});
-
-});
