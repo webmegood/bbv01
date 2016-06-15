@@ -15,6 +15,27 @@ function setupGeolocation () {
 		testObject.push([location.latitude,location.longitude,location.time]);
 
 
+
+		// Store
+		if(typeof(window.localStorage) != 'undefined'){ 
+		//var gpsDataArray = JSON.stringify(testObject);
+		//localStorage.setItem('testObject', gpsDataArray);
+		localStorage.setItem('testObject', JSON.stringify(testObject));
+		} else {
+		alert("GPS Data Not Available"); 
+		}
+		
+		
+		// Retrieve 
+		var retrievedObject = localStorage.getItem('testObject');
+		document.getElementById("result").innerHTML = retrievedObject;	
+
+
+		//sendtodatabase(gpsDataArray);
+
+
+
+
         /*
         IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
         and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
