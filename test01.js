@@ -10,10 +10,10 @@ function setupGeolocation () {
 
 	var callbackFn = function(location) {
 
-		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');
+		//alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');
 
-		testObject.push([location.latitude,location.longitude,location.time]);
-
+		//testObject.push([location.latitude,location.longitude,location.time]);
+		testObject.push(["Latitude:" location.latitude, "Longitude:" location.longitude, "Time:" location.time]);
 
 
 		// Store
@@ -36,25 +36,28 @@ function setupGeolocation () {
 
 
 
-        /*
-        IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
-        and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
-        IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
-        */
         backgroundGeolocation.finish();
     };
+
+
+
 
     var failureFn = function(error) {
         console.log('BackgroundGeolocation error');
     };
+	
+	
 
     // BackgroundGeolocation is highly configurable. See platform specific configuration options
     backgroundGeolocation.configure(callbackFn, failureFn, {
         desiredAccuracy: 10,
         stationaryRadius: 20,
-        distanceFilter: 30,
-        debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
-        stopOnTerminate: false, // <-- enable this to clear background location settings when the app terminates
+        distanceFilter: 20,
+        debug: false, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
+        stopOnTerminate: true,
+		locationService: backgroundGeoLocation.service.ANDROID_FUSED_LOCATION,
+    	interval: 3000 // <!-- poll for position every x secs 
+	// <-- Clear background location settings when the app terminates
     });
 
     // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
