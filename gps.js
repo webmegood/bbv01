@@ -9,7 +9,7 @@ function setupGeolocation () {
 
     var callbackFn = function(location) {
 		
-		testObject.push([location.latitude, location.longitude,location.time]);
+		testObject.push([location.latitude,location.longitude,location.time]);
 		
 		
 		// Store
@@ -22,12 +22,14 @@ function setupGeolocation () {
 		
 		// Retrieve 
 		var retrievedObject = localStorage.getItem('testObject');
-		document.getElementById("result").innerHTML = retrievedObject;	
+		document.getElementById("result").innerHTML = JSON.parse(retrievedObject);	
 
 
 		
-  
-	  
+
+
+
+
 	  /*
       IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
       and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
