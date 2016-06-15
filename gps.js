@@ -14,8 +14,9 @@ function setupGeolocation () {
 		
 		// Store
 		if(typeof(window.localStorage) != 'undefined'){ 
-		var gpsDataArray = JSON.stringify(testObject);
-		localStorage.setItem('testObject', gpsDataArray);
+		//var gpsDataArray = JSON.stringify(testObject);
+		//localStorage.setItem('testObject', gpsDataArray);
+		localStorage.setItem('testObject', JSON.stringify(testObject));
 		} else {
 		alert("GPS Data Not Available"); 
 		}
@@ -26,7 +27,7 @@ function setupGeolocation () {
 		document.getElementById("result").innerHTML = retrievedObject;	
 
 
-		sendtodatabase(gpsDataArray);
+		//sendtodatabase(gpsDataArray);
 		
   
 	  
@@ -74,19 +75,19 @@ function setupGeolocation () {
 
 
 
-function sendtodatabase(arrayValues){
-$.ajax({
-url: 'http://www.mediathrong.com/beepboards/tracking/scripts/gps_check.php',
-type: 'POST',
-data: {data: arrayValues},
-cache: false,
-success: function(output){
-dit = output;
-},
-error: function (request, status, error) {
-}
-});
-}
+//function sendtodatabase(arrayValues){
+//$.ajax({
+//url: 'http://www.mediathrong.com/beepboards/tracking/scripts/gps_check.php',
+//type: 'POST',
+//data: {data: arrayValues},
+//cache: false,
+//success: function(output){
+//dit = output;
+//},
+//error: function (request, status, error) {
+//}
+//});
+//}
 
 
 
