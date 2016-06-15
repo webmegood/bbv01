@@ -5,15 +5,15 @@ function setupGeolocation () {
      * This function will be executed every time a geolocation was got on the background.
      */
 	 
-	var testObject = [];	 // Array containing GPS location objects	 
+	//var testObject = [];	 // Array containing GPS location objects	 
 
     var callbackFn = function(location) {
 		
-		testObject.push(location);
+		//testObject.push(location);
 		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');  
 		
 		// Store
-		localStorage.setItem('testObject', JSON.stringify(testObject));
+		//localStorage.setItem('testObject', JSON.stringify(testObject));
 
       backgroundGeoLocation.finish();
     };
