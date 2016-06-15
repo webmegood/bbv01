@@ -13,7 +13,7 @@ function setupGeolocation () {
 		//alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');
 
 		//testObject.push([location.latitude,location.longitude,location.time]);
-		testObject.push([location.latitude, location.longitude, location.time]);
+		testObject.push([location.latitude,location.longitude,location.time]);
 
 
 		// Store
