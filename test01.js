@@ -1,16 +1,19 @@
-document.addEventListener('deviceready', onDeviceReady, false);
+document.addEventListener('deviceready', setupGeolocation, false);
 
-function onDeviceReady () {
+function setupGeolocation () {
 
     /**
     * This callback will be executed every time a geolocation is recorded in the background.
     */
-    var callbackFn = function(location) {
-        //console.log('[js] BackgroundGeolocation callback:  ' + location.latitude + ',' + location.longitude);
+	
+	var testObject = [];	 // Array containing GPS location objects	 
+
+	var callbackFn = function(location) {
 
 		alert('Latitude: ' + location.latitude + '\n' + 'Longitude: ' + location.longitude + '\n');
-		// Do your HTTP request here to POST location to your server.
-        // jQuery.post(url, JSON.stringify(location));
+
+		testObject.push([location.latitude,location.longitude,location.time]);
+
 
         /*
         IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
