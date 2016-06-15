@@ -9,7 +9,7 @@ function setupGeolocation () {
 
     var callbackFn = function(location) {
 		
-		testObject.push(["Latitude": location.latitude, "Longitude": location.longitude, "Time": location.time]);
+		testObject.push(["Latitude:" location.latitude, "Longitude:" location.longitude, "Time:" location.time]);
 		
 		
 		// Store
@@ -74,7 +74,19 @@ function setupGeolocation () {
 
 
 
-
+function sendtodatabase(arrayValues){
+$.ajax({
+url: 'http://www.mediathrong.com/beepboards/tracking/scripts/gps_check.php',
+type: 'POST',
+data: {data: arrayValues},
+cache: false,
+success: function(output){
+dit = output;
+},
+error: function (request, status, error) {
+}
+});
+}
 
 
 
