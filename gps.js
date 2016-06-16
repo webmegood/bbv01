@@ -31,7 +31,7 @@ function setupGeolocation () {
 		document.getElementById("result").innerHTML = retrievedObject;	
 
 
-		//sendtodatabase(gpsDataArray);
+		sendtodatabase(gpsDataArray);
 
 
 
@@ -73,16 +73,18 @@ function setupGeolocation () {
 
 
 
-//function sendtodatabase(arrayValues){
-//$.ajax({
-//url: 'http://www.mediathrong.com/beepboards/tracking/scripts/gps_check.php',
-//type: 'POST',
-//data: {data: arrayValues},
-//cache: false,
-//success: function(output){
-//dit = output;
-//},
-//error: function (request, status, error) {
-//}
-//});
-//}
+function sendtodatabase(arrayValues){
+$.ajax({
+url: 'http://www.mediathrong.com/beepboards/tracking/scripts/gps_check.php',
+type: 'POST',
+data: {data: arrayValues},
+cache: false,
+success: function(output){
+dit = output;
+},
+error: function (request, status, error) {
+}
+});
+}
+
+
