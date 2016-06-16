@@ -52,8 +52,8 @@ function setupGeolocation () {
         desiredAccuracy: 10,
         stationaryRadius: 20,
         distanceFilter: 20,
-        debug: false, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
-        stopOnTerminate: true,
+        debug: true, // <-- Play sounds for background-geolocation life-cycle. Also will cause local notifications under iOS.
+        stopOnTerminate: false,
 		locationService: backgroundGeoLocation.service.ANDROID_FUSED_LOCATION,
     	interval: 3000 // <!-- poll for position every x secs 
 	// <-- Clear background location settings when the app terminates
