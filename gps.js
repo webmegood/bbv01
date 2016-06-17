@@ -31,7 +31,7 @@ function setupGeolocation () {
 		document.getElementById("result").innerHTML = retrievedObject;	
 
 
-		sendtodatabaseTemp(gpsDataArray);
+		sendtodatabase(gpsDataArray);
 
 
 
