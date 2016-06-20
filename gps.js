@@ -39,7 +39,6 @@ function setupGeolocation () {
 		
 		// 3. Add event handler
 		uploadDataButton.addEventListener ("click", function() {
-		  alert(gpsDataArray);
 		  sendtodatabase(gpsDataArray);
 		});
 
@@ -95,7 +94,9 @@ alert(arrayValues);
 
 
 function sendtodatabase(arrayValues){
-	
+
+alert(arrayValues);
+
 $.ajax({
 url: 'http://www.mediathrong.com/beepboards/tracking/scripts/gps_check.php',
 type: 'POST',
