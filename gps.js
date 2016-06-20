@@ -25,13 +25,16 @@ function setupGeolocation () {
 		//send to database once meeting conditions. (if connected, try straight away then wait 60 seconds.)
 		
 		
-		// 0. Remove current button
-		var element = document.getElementById("uploadBtn");
-		element.parentNode.removeChild(element);
-		
+		// 0. Remove current button (if it exists)
+		var element =  document.getElementById('uploadBtn');
+		if (typeof(element) != 'undefined' && element != null)
+		{
+			element.parentNode.removeChild(element);
+		}		
+				
 		// 1. Create the button
 		var uploadDataButton = document.createElement("button");
-		uploadDataButton.innerHTML = "Do Something";
+		uploadDataButton.innerHTML = "Upload Data";
 		
 		// 2. Append in main content area and append classes and id
 		var positionUploadBtn = document.getElementById('main_content');
