@@ -21,6 +21,12 @@ function setupGeolocation () {
 		var gpsDataArray = JSON.stringify(testObject);
 		localStorage.setItem('testObject', gpsDataArray);
 		//localStorage.setItem('testObject', JSON.stringify(testObject));
+		
+		//send to database once meeting conditions. (if connected, try straight away then wait 60 seconds.)
+		var theButton = $('<button>Click Me</button>');
+    	theButton.click(function() { sendtodatabase(gpsDataArray) });
+		//sendtodatabase(gpsDataArray);
+		
 		} else {
 		alert("GPS Data Not Available"); 
 		}
@@ -31,16 +37,9 @@ function setupGeolocation () {
 		document.getElementById("result").innerHTML = retrievedObject;	
 
 
-		sendtodatabase(gpsDataArray);
 
 
 
-
-        /*
-        IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
-        and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
-        IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
-        */
         backgroundGeolocation.finish();
     };
 
@@ -78,7 +77,6 @@ alert(arrayValues);
 
 function sendtodatabase(arrayValues){
 	
-alert(arrayValues);	
 $.ajax({
 url: 'http://www.mediathrong.com/beepboards/tracking/scripts/gps_check.php',
 type: 'POST',
