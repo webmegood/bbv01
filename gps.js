@@ -26,11 +26,11 @@ function setupGeolocation () {
 		
 		
 		// 0. Remove current button (if it exists)
-		//var element =  document.getElementById('uploadBtn');
-		//if (typeof(element) != 'undefined' && element != null)
-		//{
-			//element.parentNode.removeChild(element);
-		//}		
+		var element =  document.getElementById('uploadBtn');
+		if (typeof(element) != 'undefined' && element != null)
+		{
+			element.parentNode.removeChild(element);
+		}		
 				
 		// 1. Create the button
 		var uploadDataButton = document.createElement("button");
