@@ -23,8 +23,24 @@ function setupGeolocation () {
 		//localStorage.setItem('testObject', JSON.stringify(testObject));
 		
 		//send to database once meeting conditions. (if connected, try straight away then wait 60 seconds.)
-		var theButton = $('<button>Click Me</button>');
-    	theButton.click(function() { sendtodatabase(gpsDataArray) });
+		
+		// 1. Create the button
+		var button = document.createElement("button");
+		button.innerHTML = "Do Something";
+		
+		// 2. Append somewhere
+		var body = document.getElementsByTagName("body")[0];
+		body.appendChild(button);
+		
+		// 3. Add event handler
+		button.addEventListener ("click", function() {
+		  alert("did something");
+		});
+		
+		
+		
+		//var theButton = $('<button>Click Me</button>');
+    	//theButton.click(function() { sendtodatabase(gpsDataArray) });
 		//sendtodatabase(gpsDataArray);
 		
 		} else {
