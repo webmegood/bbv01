@@ -107,7 +107,7 @@ error: function (request, status, error) {
 }
 });
 
-alert(Data has been uploaded. Thankyou.);
+alert("Your data has been uploaded. Thankyou.");
 
 }
 
