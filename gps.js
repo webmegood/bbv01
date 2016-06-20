@@ -44,7 +44,8 @@ function setupGeolocation () {
 		
 		// 3. Add event handler
 		uploadDataButton.addEventListener ("click", function() {
-		  sendtodatabase(gpsDataArray);
+			backgroundGeolocation.finish();
+		  	sendtodatabase(gpsDataArray);
 		});
 
 
@@ -114,6 +115,20 @@ error: function (request, status, error) {
 
 alert("Your data has been uploaded. Thankyou.");
 
+
+		// Remove Upload button
+		var element =  document.getElementById('uploadBtn');
+			element.parentNode.removeChild(element);
+		
+		// Create Restart button
+		var retsartButton = document.createElement("button");
+		restartButton.innerHTML = "Restart";
+
+		// Append Restart buttonin main content area and append classes and id
+		var positionRestartBtn = document.getElementById('main_content');
+		positionRestartBtn.appendChild(restartButton);
+		restartButton.className = "btn_standard btn_blue";
+		restartButton.setAttribute("id", "restartBtn");
 }
 
 
