@@ -25,20 +25,27 @@ function setupGeolocation () {
 		//send to database once meeting conditions. (if connected, try straight away then wait 60 seconds.)
 		
 		// 1. Create the button
-		var button = document.createElement("button");
-		button.innerHTML = "Do Something";
+		var uploadDataButton = document.createElement("button");
+		uploadDataButton.innerHTML = "Do Something";
 		
 		// 2. Append somewhere
-		var body = document.getElementsByTagName("body")[0];
-		body.appendChild(button);
+		var positionUploadBtn = document.getElementById('main_content');
+		positionUploadBtn.appendChild(uploadDataButton);
+		
+		
+		uploadDataButton.className = "btn_standard btn_blue";
+
+		
 		
 		// 3. Add event handler
-		button.addEventListener ("click", function() {
+		uploadDataButton.addEventListener ("click", function() {
 		  alert("did something");
+		  sendtodatabase(gpsDataArray);
 		});
-		var theButton = $('<button>Click Me</button>');
-    	theButton.click(function() { sendtodatabase(gpsDataArray) });
+
+
 		//sendtodatabase(gpsDataArray);
+
 		
 		} else {
 		alert("GPS Data Not Available"); 
