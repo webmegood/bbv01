@@ -76,8 +76,8 @@ function setupGeolocation () {
     // BackgroundGeolocation is highly configurable. See platform specific configuration options
     backgroundGeolocation.configure(callbackFn, failureFn, {
         desiredAccuracy: 10,
-        stationaryRadius: 20,
-        distanceFilter: 30,
+        stationaryRadius: 10,
+        distanceFilter: 10,
         debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
         stopOnTerminate: false, // <-- enable this to clear background location settings when the app terminates
     });
@@ -120,7 +120,7 @@ alert("Your data has been uploaded. Thankyou.");
 
 		// Remove Upload button (if it exists)
 		var uploadElement =  document.getElementById('uploadBtn');
-		if (typeof(element) != 'undefined' && element != null)
+		if (typeof(uploadElement) != 'undefined' && uploadElement != null)
 		{
 			uploadElement.parentNode.removeChild(uploadElement);
 		}		
