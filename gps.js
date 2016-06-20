@@ -79,7 +79,7 @@ function setupGeolocation () {
         stationaryRadius: 10,
         distanceFilter: 10,
     	interval: 5000, // <!-- poll for position every 5 secs 
-		locationService: backgroundGeoLocation.service.ANDROID_FUSED_LOCATION,
+		//locationService: backgroundGeoLocation.service.ANDROID_FUSED_LOCATION,
         debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
         stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
     });
