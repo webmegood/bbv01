@@ -106,6 +106,9 @@ dit = output;
 error: function (request, status, error) {
 }
 });
+
+alert(Data has been uploaded. Thankyou.);
+
 }
 
 
