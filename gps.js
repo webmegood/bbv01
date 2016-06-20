@@ -34,7 +34,7 @@ function setupGeolocation () {
 				
 		// 1. Create the button
 		var uploadDataButton = document.createElement("button");
-		uploadDataButton.innerHTML = "Upload Data";
+		uploadDataButton.innerHTML = "Stop + Upload Data";
 		
 		// 2. Append in main content area and append classes and id
 		var positionUploadBtn = document.getElementById('main_content');
@@ -44,7 +44,7 @@ function setupGeolocation () {
 		
 		// 3. Add event handler
 		uploadDataButton.addEventListener ("click", function() {
-			backgroundGeolocation.finish();
+			backgroundGeolocation.stop(); //this will stop the tracking
 		  	sendtodatabase(gpsDataArray);
 		});
 
@@ -61,15 +61,17 @@ function setupGeolocation () {
 		document.getElementById("result").innerHTML = retrievedObject;	
 
 
-
-
-
         backgroundGeolocation.finish();
     };
 
     var failureFn = function(error) {
         console.log('BackgroundGeolocation error');
     };
+	
+	
+	
+	
+	
 
     // BackgroundGeolocation is highly configurable. See platform specific configuration options
     backgroundGeolocation.configure(callbackFn, failureFn, {
@@ -116,12 +118,16 @@ error: function (request, status, error) {
 alert("Your data has been uploaded. Thankyou.");
 
 
-		// Remove Upload button
-		var element =  document.getElementById('uploadBtn');
-			element.parentNode.removeChild(element);
+		// Remove Upload button (if it exists)
+		var uploadElement =  document.getElementById('uploadBtn');
+		if (typeof(element) != 'undefined' && element != null)
+		{
+			uploadElement.parentNode.removeChild(uploadElement);
+		}		
+
 		
 		// Create Restart button
-		var retsartButton = document.createElement("button");
+		var restartButton = document.createElement("button");
 		restartButton.innerHTML = "Restart";
 
 		// Append Restart buttonin main content area and append classes and id
@@ -129,6 +135,8 @@ alert("Your data has been uploaded. Thankyou.");
 		positionRestartBtn.appendChild(restartButton);
 		restartButton.className = "btn_standard btn_blue";
 		restartButton.setAttribute("id", "restartBtn");
+
+
 }
 
 
