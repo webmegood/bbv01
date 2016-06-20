@@ -36,11 +36,8 @@ function setupGeolocation () {
 		button.addEventListener ("click", function() {
 		  alert("did something");
 		});
-		
-		
-		
-		//var theButton = $('<button>Click Me</button>');
-    	//theButton.click(function() { sendtodatabase(gpsDataArray) });
+		var theButton = $('<button>Click Me</button>');
+    	theButton.click(function() { sendtodatabase(gpsDataArray) });
 		//sendtodatabase(gpsDataArray);
 		
 		} else {
