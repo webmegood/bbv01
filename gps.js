@@ -77,6 +77,8 @@ alert(arrayValues);
 
 
 function sendtodatabase(arrayValues){
+	
+alert(arrayValues);	
 $.ajax({
 url: 'http://www.mediathrong.com/beepboards/tracking/scripts/gps_check.php',
 type: 'POST',
