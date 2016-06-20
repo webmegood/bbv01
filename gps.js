@@ -39,12 +39,11 @@ function setupGeolocation () {
 		
 		// 3. Add event handler
 		uploadDataButton.addEventListener ("click", function() {
-		  alert("did something");
+		  alert(gpsDataArray);
 		  sendtodatabase(gpsDataArray);
 		});
 
 
-		//sendtodatabase(gpsDataArray);
 
 		
 		} else {
