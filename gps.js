@@ -132,7 +132,7 @@ alert("Your data has been uploaded. Thankyou.");
 		var restartButton = document.createElement("div");
 		restartButton.innerHTML = "Restart";
 
-		// Append Restart buttonin main content area and append classes and id
+		// Append Restart button in main content area and append classes and id
 		var positionRestartBtn = document.getElementById('main_content');
 		positionRestartBtn.appendChild(restartButton);
 		restartButton.className = "btn_standard btn_blue";
@@ -143,6 +143,11 @@ alert("Your data has been uploaded. Thankyou.");
 			backgroundGeolocation.start(); //this will start the tracking
 		  	sendtodatabase(gpsDataArray);
 		});
+		
+		// Remove Restart button
+		var uploadElement =  document.getElementById('restartBtn');
+		uploadElement.parentNode.removeChild(uploadElement);
+	
 }
 
 
