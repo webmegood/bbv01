@@ -138,12 +138,14 @@ alert("Your data has been uploaded. Thankyou.");
 		restartButton.className = "btn_standard btn_blue";
 		restartButton.setAttribute("id", "restartBtn");
 
+
+
 		// Add event handler
 		restartButton.addEventListener ("click", function() {
 			backgroundGeolocation.start(); //this will start the tracking
 		  	sendtodatabase(gpsDataArray);
-		});
-		
+
+
 		// Remove Restart button
 		var uploadElementRestart = document.getElementById('restartBtn');
 		uploadElementRestart.parentNode.removeChild(uploadElementRestart);
@@ -157,7 +159,10 @@ alert("Your data has been uploaded. Thankyou.");
 		positionUploadBtn.appendChild(uploadDataButton);
 		uploadDataButton.className = "btn_standard btn_blue";
 		uploadDataButton.setAttribute("id", "uploadBtn");
-	
+		
+		});
+
+
 }
 
 
