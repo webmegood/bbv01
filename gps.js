@@ -145,8 +145,18 @@ alert("Your data has been uploaded. Thankyou.");
 		});
 		
 		// Remove Restart button
-		var uploadElement =  document.getElementById('restartBtn');
-		uploadElement.parentNode.removeChild(uploadElement);
+		var uploadElementRestart = document.getElementById('restartBtn');
+		uploadElementRestart.parentNode.removeChild(uploadElementRestart);
+		
+		// Recreate the upload button
+		var uploadDataButton = document.createElement("div");
+		uploadDataButton.innerHTML = "Stop + Upload Data";
+
+		// Append in main content area and append classes and id
+		var positionUploadBtn = document.getElementById('main_content');
+		positionUploadBtn.appendChild(uploadDataButton);
+		uploadDataButton.className = "btn_standard btn_blue";
+		uploadDataButton.setAttribute("id", "uploadBtn");
 	
 }
 
