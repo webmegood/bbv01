@@ -33,7 +33,7 @@ function setupGeolocation () {
 		}		
 				
 		// 1. Create the button
-		var uploadDataButton = document.createElement("button");
+		var uploadDataButton = document.createElement("div");
 		uploadDataButton.innerHTML = "Stop + Upload Data";
 		
 		// 2. Append in main content area and append classes and id
@@ -129,7 +129,7 @@ alert("Your data has been uploaded. Thankyou.");
 
 		
 		// Create Restart button
-		var restartButton = document.createElement("button");
+		var restartButton = document.createElement("div");
 		restartButton.innerHTML = "Restart";
 
 		// Append Restart buttonin main content area and append classes and id
@@ -138,7 +138,11 @@ alert("Your data has been uploaded. Thankyou.");
 		restartButton.className = "btn_standard btn_blue";
 		restartButton.setAttribute("id", "restartBtn");
 
-
+		// Add event handler
+		restartButton.addEventListener ("click", function() {
+			backgroundGeolocation.start(); //this will start the tracking
+		  	sendtodatabase(gpsDataArray);
+		});
 }
 
 
