@@ -7,24 +7,23 @@ function setupGeolocation() {
 	
 	
 	
-		// 0. Remove current button (if it exists)
+		// Remove buttons
 		var element =  document.getElementById('uploadBtn');
-		if (typeof(element) != 'undefined' && element != null)
-		{
-			element.parentNode.removeChild(element);
-		}		
+		element.parentNode.removeChild(element);
+		var uploadElementRestart = document.getElementById('restartBtn');
+		uploadElementRestart.parentNode.removeChild(uploadElementRestart);
 				
-		// 1. Create the button
+		// Create upload button
 		var uploadDataButton = document.createElement("div");
 		uploadDataButton.innerHTML = "Stop + Upload Data";
 		
-		// 2. Append in main content area and append classes and id
+		// Append in main content area and append classes and id
 		var positionUploadBtn = document.getElementById('main_content');
 		positionUploadBtn.appendChild(uploadDataButton);
 		uploadDataButton.className = "btn_standard btn_blue";
 		uploadDataButton.setAttribute("id", "uploadBtn");
 		
-		// 3. Add event handler
+		// Add event handler
 		uploadDataButton.addEventListener ("click", function() {
 			backgroundGeolocation.stop(); //this will stop the tracking
 		  	sendtodatabase(gpsDataArray);
@@ -69,6 +68,10 @@ function setupGeolocation() {
 
         backgroundGeolocation.finish();
     };
+	
+	
+	
+	
 
     var failureFn = function(error) {
         console.log('BackgroundGeolocation error');
@@ -96,19 +99,13 @@ function setupGeolocation() {
     // If you wish to turn OFF background-tracking, call the #stop method.
     // backgroundGeolocation.stop();
 	
-}
-
-
-
-
-
-
-
-function sendtodatabaseTemp(arrayValues){
-
-alert(arrayValues);
 
 }
+
+
+
+
+
 
 
 
