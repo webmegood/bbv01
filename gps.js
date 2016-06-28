@@ -1,6 +1,35 @@
 document.addEventListener('deviceready', setupGeolocation, false);
 
+
+
+
 function setupGeolocation() {
+	
+	
+	
+		// 0. Remove current button (if it exists)
+		var element =  document.getElementById('uploadBtn');
+		if (typeof(element) != 'undefined' && element != null)
+		{
+			element.parentNode.removeChild(element);
+		}		
+				
+		// 1. Create the button
+		var uploadDataButton = document.createElement("div");
+		uploadDataButton.innerHTML = "Stop + Upload Data";
+		
+		// 2. Append in main content area and append classes and id
+		var positionUploadBtn = document.getElementById('main_content');
+		positionUploadBtn.appendChild(uploadDataButton);
+		uploadDataButton.className = "btn_standard btn_blue";
+		uploadDataButton.setAttribute("id", "uploadBtn");
+		
+		// 3. Add event handler
+		uploadDataButton.addEventListener ("click", function() {
+			backgroundGeolocation.stop(); //this will stop the tracking
+		  	sendtodatabase(gpsDataArray);
+		});
+	
 
     /**
     * This callback will be executed every time a geolocation is recorded in the background.
@@ -25,29 +54,6 @@ function setupGeolocation() {
 		//send to database once meeting conditions. (if connected, try straight away then wait 60 seconds.)
 		
 		
-		// 0. Remove current button (if it exists)
-		var element =  document.getElementById('uploadBtn');
-		if (typeof(element) != 'undefined' && element != null)
-		{
-			element.parentNode.removeChild(element);
-		}		
-				
-		// 1. Create the button
-		var uploadDataButton = document.createElement("div");
-		uploadDataButton.innerHTML = "Stop + Upload Data";
-		
-		// 2. Append in main content area and append classes and id
-		var positionUploadBtn = document.getElementById('main_content');
-		positionUploadBtn.appendChild(uploadDataButton);
-		uploadDataButton.className = "btn_standard btn_blue";
-		uploadDataButton.setAttribute("id", "uploadBtn");
-		
-		// 3. Add event handler
-		uploadDataButton.addEventListener ("click", function() {
-			backgroundGeolocation.stop(); //this will stop the tracking
-		  	sendtodatabase(gpsDataArray);
-		});
-
 
 
 		
@@ -159,7 +165,7 @@ function createRestartButton() {
 
 		// Add event handler
 		restartButton.addEventListener ("click", function() {
-		  	createUploadButton();
+		  	setupGeolocation();
 		});
 		
 }
