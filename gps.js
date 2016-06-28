@@ -1,4 +1,4 @@
-document.addEventListener('deviceready', setupGeolocation, false);
+document.addEventListener('deviceready', setupGeolocation(), false);
 
 
 
