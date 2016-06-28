@@ -9,9 +9,15 @@ function setupGeolocation() {
 	
 		// Remove buttons
 		var uploadElement =  document.getElementById('uploadBtn');
-		uploadElement.parentNode.removeChild(uploadElement);
+		if (typeof(uploadElement) != 'undefined' && uploadElement != null)
+		{
+			uploadElement.parentNode.removeChild(uploadElement);
+		}		
 		var restartElement = document.getElementById('restartBtn');
-		restartElement.parentNode.removeChild(restartElement);
+		if (typeof(restartElement) != 'undefined' && restartElement != null)
+		{
+			restartElement.parentNode.removeChild(restartElement);
+		}		
 				
 		// Create upload button
 		var uploadDataButton = document.createElement("div");
