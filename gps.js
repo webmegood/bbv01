@@ -1,6 +1,6 @@
 document.addEventListener('deviceready', setupGeolocation, false);
 
-function setupGeolocation () {
+function setupGeolocation() {
 
     /**
     * This callback will be executed every time a geolocation is recorded in the background.
