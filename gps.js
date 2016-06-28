@@ -29,11 +29,7 @@ function setupGeolocation() {
 		uploadDataButton.className = "btn_standard btn_blue";
 		uploadDataButton.setAttribute("id", "uploadBtn");
 		
-		// Add event handler
-		uploadDataButton.addEventListener ("click", function() {
-			backgroundGeolocation.stop(); //this will stop the tracking
-		  	sendtodatabase(gpsDataArray);
-		});
+
 	
 
     /**
@@ -105,6 +101,16 @@ function setupGeolocation() {
     // If you wish to turn OFF background-tracking, call the #stop method.
     // backgroundGeolocation.stop();
 	
+
+
+		// Add event handler to button
+		uploadDataButton.addEventListener ("click", function() {
+			backgroundGeolocation.stop(); //this will stop the tracking
+		  	sendtodatabase(gpsDataArray);
+		});
+
+
+
 
 }
 
