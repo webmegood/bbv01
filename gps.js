@@ -93,6 +93,11 @@ function setupGeolocation () {
 }
 
 
+
+
+
+
+
 function sendtodatabaseTemp(arrayValues){
 
 alert(arrayValues);
@@ -180,6 +185,6 @@ function createUploadButton() {
 		
 		// Add event handler
 		uploadDataButton.addEventListener ("click", function() {
-		  	createRestartButton();
+		  	setupGeolocation();
 		});
 }
