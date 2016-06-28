@@ -8,10 +8,10 @@ function setupGeolocation() {
 	
 	
 		// Remove buttons
-		var element =  document.getElementById('uploadBtn');
-		element.parentNode.removeChild(element);
-		var uploadElementRestart = document.getElementById('restartBtn');
-		uploadElementRestart.parentNode.removeChild(uploadElementRestart);
+		var uploadElement =  document.getElementById('uploadBtn');
+		uploadElement.parentNode.removeChild(uploadElement);
+		var restartElement = document.getElementById('restartBtn');
+		restartElement.parentNode.removeChild(restartElement);
 				
 		// Create upload button
 		var uploadDataButton = document.createElement("div");
@@ -142,13 +142,10 @@ createRestartButton();
 
 
 function createRestartButton() {		
+		
 		// Remove Upload button
 		var uploadElement =  document.getElementById('uploadBtn');
-		if (typeof(uploadElement) != 'undefined' && uploadElement != null)
-		{
-			uploadElement.parentNode.removeChild(uploadElement);
-		}		
-
+		uploadElement.parentNode.removeChild(uploadElement);
 		
 		// Create Restart button
 		var restartButton = document.createElement("div");
@@ -171,23 +168,3 @@ function createRestartButton() {
 
 
 
-function createUploadButton() {
-		// Remove Restart button
-		var uploadElementRestart = document.getElementById('restartBtn');
-		uploadElementRestart.parentNode.removeChild(uploadElementRestart);
-		
-		// Recreate the upload button
-		var uploadDataButton = document.createElement("div");
-		uploadDataButton.innerHTML = "Stop + Upload Data";
-		
-		// Append in main content area and append classes and id
-		var positionUploadBtn = document.getElementById('main_content');
-		positionUploadBtn.appendChild(uploadDataButton);
-		uploadDataButton.className = "btn_standard btn_blue";
-		uploadDataButton.setAttribute("id", "uploadBtn");
-		
-		// Add event handler
-		uploadDataButton.addEventListener ("click", function() {
-		  	setupGeolocation();
-		});
-}
