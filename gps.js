@@ -3,7 +3,7 @@ document.addEventListener('deviceready', setupGeolocation, false);
 
 
 
-function setupGeolocation () {
+function setupGeolocation() {
 	
 	
 	
@@ -29,8 +29,21 @@ function setupGeolocation () {
 		uploadDataButton.className = "btn_standard btn_blue";
 		uploadDataButton.setAttribute("id", "uploadBtn");
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
-	
+
+
+
+
+
 
 }
 
