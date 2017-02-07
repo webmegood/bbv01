@@ -106,7 +106,7 @@ function setupGeolocation() {
         desiredAccuracy: 10,
         stationaryRadius: 10,
         distanceFilter: 10,
-    	interval: 5000, // <!-- poll for position every 5 secs 
+    	interval: 30000, // <!-- poll for position every 30 secs 
 		//locationService: backgroundGeoLocation.service.ANDROID_FUSED_LOCATION,
         debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
         stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
@@ -139,7 +139,7 @@ error: function (request, status, error) {
 }
 });
 
-alert("Your data has been uploaded. Thankyou.");
+//alert("Your data has been uploaded. Thankyou.");
 
 
 
